@@ -6,23 +6,26 @@ const About = () => {
   const [imageUrl, setImageUrl] = useState(null);
 
   useEffect(() => {
-    fetchContent("node/about").then((data) => setContent(data.data[0]));
-  }, []);
+    fetchContent("node/about").then((data) => {
+      setContent(data.data[0]);
 
-  useEffect(() => {
-    const imageRelationship = content.relationships.field_profile;
+      const imageRelationship = content.relationships.field_profile;
 
-    if (imageRelationship) {
-      // Fetch the image URL from the related link
-      fetch(imageRelationship.links.related.href)
-        .then((response) => response.json())
-        .then((imageData) => {
-          const imageFile = `https://localhost:63839/${imageData.data.attributes.uri.url}`;
-          setImageUrl(imageFile);
-        })
-        .catch((imgError) => console.error("Error fetching image:", imgError));
-    }
-  }, []);
+      if (imageRelationship) {
+        // Fetch the image data from the related link
+        fetch(imageRelationship.links.related.href)
+          .then((response) => response.json())
+          .then((imageData) => {
+            const imageFile = `https://localhost:63839/${imageData.data.attributes.uri.url}`;
+            setImageUrl(imageFile);
+          })
+          .catch((imgError) =>
+            console.error("Error fetching image:", imgError)
+          );
+      }
+    }),
+      [];
+  });
 
   return (
     <div>
