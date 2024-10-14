@@ -45,7 +45,7 @@ const Projects = () => {
           {content ? (
             content.map((item) => (
               <Col className="mt-5" key={item.id}>
-                <Card className="h-100" bg="dark" text="light" border="dark">
+                <Card className="h-100" bg="dark" text="light" border="muted">
                   <div>
                     {projectImages[item.id] ? (
                       <Card.Img
@@ -64,13 +64,13 @@ const Projects = () => {
                       <p>No screenshot available</p>
                     )}
                   </div>
-                  <Card.Body className="d-flex flex-column">
+                  <Card.Body className="d-flex flex-column justify-content-center align-items-center">
                     <Card.Title>{item.attributes.title}</Card.Title>
                     <Button
                       href={`${item.attributes.field_github_link.uri}`}
-                      variant="light"
                       size="lg"
-                      className="w-50"
+                      variant="light"
+                      className="w-30 mt-3"
                     >
                       <i className="bi bi-github"></i>{" "}
                       {item.attributes.field_github_link.title}

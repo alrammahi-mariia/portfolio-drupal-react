@@ -25,9 +25,12 @@ const Contact = () => {
       <div className="d-flex justify-content-center my-5">
         <h1>Contact Form</h1>
       </div>
-      <Container className="mt-5">
+      <Container className="mt-2 w-50">
         <Row className="justify-content-center">
-          <Col xs={12} md={8} lg={6}>
+          <Col>
+            <p className="lead text-center">
+              Send me a message and I will get back to you as soon as possible!
+            </p>
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formName" className="mb-3">
                 <Form.Label>Name</Form.Label>
