@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
@@ -14,10 +15,59 @@ const Contact = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const getCsrfToken = async () => {
+    try {
+      const response = await axios.get("https://localhost:63839/session/token");
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching CSRF token:", error);
+      return null;
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to backend)
-    console.log("Form Data:", formData);
+
+    const csrfToken = await getCsrfToken();
+    if (!csrfToken) {
+      console.error("CSRF token retrieval failed.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "https://localhost:63839/jsonapi/node/message/",
+        {
+          data: {
+            type: "node--message",
+            attributes: {
+              title: `${formData.name}`,
+              field_email: `${formData.email}`,
+              field_subject: `${formData.subject}`,
+              field_message: {
+                value: `${formData.message}`,
+              },
+            },
+          },
+        },
+        {
+          headers: {
+            "Content-Type": "application/vnd.api+json",
+            "X-CSRF-Token": csrfToken,
+          },
+        }
+      );
+
+      console.log("Form submitted successfully:", response.data);
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
