@@ -1,20 +1,29 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import Layout from "./pages/Layout";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/" element={<About />} /> */}
-        {/* <Route path="/" element={<Skills />} /> */}
-        {/* <Route path="/" element={<Projects />} /> */}
+        <Route path="/" element={<Layout />}>
+          <Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/contact" element={<Contact />} />
+          </Route>
+        </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 };
 

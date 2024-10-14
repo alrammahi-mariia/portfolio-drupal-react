@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchContent } from "../services/api";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
 const Projects = () => {
   const [content, setContent] = useState([]);
@@ -36,29 +37,53 @@ const Projects = () => {
 
   return (
     <div>
-      <h1>Projects</h1>
-      {content ? (
-        content.map((item) => (
-          <div key={item.id}>
-            <h3>{item.attributes.title}</h3>
-            <a href={item.attributes.field_github_link.uri}>
-              {item.attributes.field_github_link.title}
-            </a>
-            {/* Display image if available */}
-            {projectImages[item.id] ? (
-              <img
-                src={projectImages[item.id]}
-                alt={`Screenshot for ${item.attributes.title}`}
-                width="400"
-              />
-            ) : (
-              <p>No screenshot available</p>
-            )}
-          </div>
-        ))
-      ) : (
-        <div>No content available</div>
-      )}
+      <div className="d-flex justify-content-center my-5">
+        <h1>Projects</h1>
+      </div>
+      <Container fluid>
+        <Row xs={2} md={3} lg={4} className="g-3">
+          {content ? (
+            content.map((item) => (
+              <Col className="mt-5" key={item.id}>
+                <Card className="h-100" bg="dark" text="light" border="dark">
+                  <div>
+                    {projectImages[item.id] ? (
+                      <Card.Img
+                        variant="top"
+                        src={projectImages[item.id]}
+                        alt={`Screenshot for ${item.attributes.title}`}
+                        className="rounded h-50"
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "top",
+                          minHeight: "200px",
+                          maxHeight: "200px",
+                        }}
+                      />
+                    ) : (
+                      <p>No screenshot available</p>
+                    )}
+                  </div>
+                  <Card.Body className="d-flex flex-column">
+                    <Card.Title>{item.attributes.title}</Card.Title>
+                    <Button
+                      href={`${item.attributes.field_github_link.uri}`}
+                      variant="light"
+                      size="lg"
+                      className="w-50"
+                    >
+                      <i className="bi bi-github"></i>{" "}
+                      {item.attributes.field_github_link.title}
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))
+          ) : (
+            <div>No content available</div>
+          )}
+        </Row>
+      </Container>
     </div>
   );
 };
