@@ -81,7 +81,7 @@ Ensure you have the following installed on your system:
 
 - The front end fetches content from the Drupal backend. You can manage and update the portfolio's content directly from Drupal's admin interface.
 - To add new projects or skills, add a new respective content type in Drupal, and the changes will be reflected on the website.
-- The contact form can be used to send a message, which is saved to Drupal through POST request under the content type "Message".
+- The contact form allows users to send messages, which are submitted via a POST request and saved in Drupal as a new content item of the "Message" content type.
 
 ## License
 
