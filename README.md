@@ -11,8 +11,7 @@ This is a fully decoupled personal portfolio website built with **React 18** and
 5. [Project Structure](#project-structure)
 6. [Getting Started](#getting-started)
 7. [Usage](#usage)
-8. [Contributing](#contributing)
-9. [License](#license)
+8. [License](#license)
 
 ## Features
 
@@ -29,7 +28,7 @@ This is a fully decoupled personal portfolio website built with **React 18** and
 
 ## Screenshots
 
-![Homepage](/screenshots/image.png){width=300 height=300}
+![Homepage](/screenshots/image.png)
 ![Projects](/screenshots/image-1.png)
 ![SKills-responsive](/screenshots/image-2.png)
 ![Contact-responsive](/screenshots/image-4.png)
