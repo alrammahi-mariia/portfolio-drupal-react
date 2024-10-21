@@ -29,10 +29,10 @@ This is a fully decoupled personal portfolio website built with **React 18** and
 
 ## Screenshots
 
-![Homepage](image.png)
-![Projects](image-1.png)
-![SKills-responsive](image-2.png)
-![Contact-responsive](image-4.png)
+![Homepage](/screenshots/image.png){width=300 height=300}
+![Projects](/screenshots/image-1.png)
+![SKills-responsive](/screenshots/image-2.png)
+![Contact-responsive](/screenshots/image-4.png)
 
 ## Demo
 
