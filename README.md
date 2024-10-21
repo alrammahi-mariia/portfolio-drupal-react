@@ -64,7 +64,7 @@ Ensure you have the following installed on your system:
 
 3. **Set up the Drupal backend**:
 
-   Make sure you have a running Drupal 10 or 11 site with the JSON:API module enabled and properly configured. You may need to adjust CORS settings and configure permissions for anonymous users to access content.
+   Make sure you have a running Drupal 10 or 11 site with the JSON:API module enabled and properly configured. You may need to adjust CORS settings and configure permissions for anonymous users to access and edit content.
 
 4. **Configure the API URL**:
 
