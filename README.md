@@ -35,6 +35,8 @@ This is a fully decoupled personal portfolio website built with **React 18** and
 
 ## Demo
 
+View demo walkthrough **[here](https://businesscollege-my.sharepoint.com/:v:/g/personal/s2200113_edu_bc_fi/EXd_xnhXGxlIuNq4XOXSZ6EB4ckarUIgwZYfI52qmrXHNA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=kG6ccc)**
+
 ## Getting Started
 
 ### Prerequisites
